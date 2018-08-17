@@ -41,7 +41,7 @@ defmodule Newstore.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:prios, git: "https://gitlab.com/krem/prios.git", tag: "0.1.7"}
+      {:prios, git: "https://gitlab.com/krem/prios.git", tag: "0.1.8.bf4"}
     ]
   end
 

@@ -8,44 +8,105 @@
       <input type="search..." placeholder="Search users...">
       <button>Search</button>
   </div>
+
+
+  <%= for user <- @users do %>
+  <div class="sq-flex sq-justify-center">
+  <!--Table-->
+    <table class="sq-border-1 sq-border-collapse sq-width-40p sq-air-t-15">
+      <tr>
+        <th>Name</th>
+        <th>Info</th>
+        <th>Shopping History</th>
+        <th>Update/Delete</th>
+      </tr>
+   
+      <tr>
+        <td class="sq-border-1 sq-padding-05 "> <%= user.fname %></td>
+        <td class="sq-border-1 sq-padding-05"> 
+          <div class="sq-flex sq-justify-center">
+            <button onclick="openModal('<%= user.id %>')">info</button>
+          </div>
+        </td>
+        <td class="sq-border-1 sq-padding-05"> 
+          <div class="sq-flex sq-justify-center">
+            <button class="sq-admin-user-shopping">Shopping History</button>
+          </div>
+        </td>
+        <td class="sq-border-1 sq-padding-05">
+          <div class="sq-flex sq-justify-around">
+            <button>Update</button>
+            <button>Delete</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
   <section>
-  <!--Info-->
-    <div  id="sq-modal-info" class="sq-modal">
+  <!--Info modal-->
+    <div id="<%= user.id %>" class="sq-modal">
       <div class="sq-modal-content">
-        <input hidden id="userID" value="">
-        <span class="iclose sq-close">&times;</span>
+        <span onclick="closeModal('<%= user.id %>')" class="iclose sq-close">&times;</span>
         <div class="sq-text-center">
-          <h1 class="name">Paragraph 1</h1>
+          <h1 class=""><%= user.fname %> <%= user.lname %></h1>
         </div>
         <div class="sq-text-center">
           <p><strong>Contact Info</strong></p>
         </div>
-        <input type="text" placeholder="User id...">
+        <div>
+          <p><strong>First name:</strong> <%= user.fname %></p>
+        </div>
+        <div>
+          <p><strong>Last name:</strong> <%= user.lname %></p>
+        </div>
+        <div>
+          <p><strong>Phone:</strong> <%= user.phone %></p>
+        </div>
+        <div>
+          <p><strong>Email:</strong> <%= user.email %></p>
+        </div>
         <!--Adresse-->
-        <div>
-          <h4 class="firstname"></h4>
-        </div>
-        <div>
-          <h4 class="lastname"></h4>
-        </div>
-        <input type="text" placeholder="Telefon...">
+  
         <div class="sq-text-center">
           <p><strong>Factura Adress</strong></p>
         </div>
-         <input type="text" placeholder="Streetname..."> 
          <div>
-          <h3 class="city"></h3>
+          <p><strong>Street:</strong> <%= user.address %></p>
         </div>
-        <input type="text" placeholder="Country...">     
-        <input type="text" placeholder="zip code..">       
+        <div>
+          <p><strong>City:</strong> <%= user.city %></p>
+        </div> 
+        <div>
+          <p><strong>Postal Code:</strong> <%= user.postal_code %></p>
+        </div> 
+        <div>
+          <p><strong>Country:</strong> <%= user.country %></p>
+        </div> 
+         <div>
+          <h3 class=""></h3>
+        </div>     
         <a href="#">
-          <div class="sq-flex sq-justify-center sq-air-t-20">
+          <div class="sq-flex sq-justify-center">
             <button class="sq-padding-1">Submit</button>
           </div>
         </a>
       </div>
     </div>
-    <!--Shopping-->
+    <% end %>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--Shopping modal-->
     <div id="sq-modal-shopping" class="sq-modal">
       <div class="sq-modal-content">
         <input hidden id="userID" value="">
@@ -67,162 +128,18 @@
         </a>
       </div>
     </div>
-  </section>
-  <div class="sq-flex sq-justify-center">
-  <!--Table-->
-    <table class="sq-border-1 sq-border-collapse sq-width-40p sq-air-t-15">
-      <tr>
-        <th>Name</th>
-        <th>Info</th>
-        <th>Shopping History</th>
-        <th>Update/Delete</th>
-      </tr>
-      <%#  %>
-      <%= for user <- @users do %>
-      <tr id="<%= user.id %>">
-        <td class="sq-border-1 sq-padding-05 name"><%= user.email %></td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-info">Info</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-shopping">Shopping History</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05">
-          <div class="sq-flex sq-justify-around">
-            <button>Update</button>
-            <button>Delete</button>
-          </div>
-        </td>
-        <div>
-          <td class="sq-border-1 sq-padding-05 lastname" style="display:none"><%= user.fname %></td>
-        </div>
-        <div>
-          <td class="sq-border-1 sq-padding-05 city" style="display:none"><%= user.email %></td>
-        </div>
-        <div>
-          <td class="sq-border-1 sq-padding-05 firstname" style="display:none"><%= user.fname %></td>
-        </div>
-      </tr>
-      <% end %>
-      <%#  %>
-      <tr id="31515123231">
-        <td class="sq-border-1 sq-padding-05 name">Bob Kåre</td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-info">Info</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-shopping">Shopping History</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05">
-          <div class="sq-flex sq-justify-around">
-            <button>Update</button>
-            <button>Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="sq-border-1 sq-padding-05 name"></td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-info">Info</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-shopping">Shopping History</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05">
-          <div class="sq-flex sq-justify-around">
-            <button>Update</button>
-            <button>Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="sq-border-1 sq-padding-05 name"></td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-info">Info</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05"> 
-          <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-shopping">Shopping History</button>
-          </div>
-        </td>
-        <td class="sq-border-1 sq-padding-05">
-          <div class="sq-flex sq-justify-around">
-            <button>Update</button>
-            <button>Delete</button>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
 </section>
 <script>
-  //get modal info and shopping start
-  var imodal = document.getElementById("sq-modal-info");
-  var shmodal = document.getElementById("sq-modal-shopping");
-  //end
-
-// Button id that opens the modal start
-//Info
-  var info = document.getElementsByClassName("sq-admin-user-info");
-  for (shs of info) { //Iterates through HTML DOM elements
-      shs.onclick =  (el) => { //applies function to onclick event on iterated element
-        var userID = el.target.parentElement.parentElement.parentElement.id;
-        var userName = el.target.parentElement.parentElement.parentElement.querySelector('.name').innerHTML;
-        var firstName = el.target.parentElement.parentElement.parentElement.querySelector('.firstname').innerHTML;
-        var lastName = el.target.parentElement.parentElement.parentElement.querySelector('.lastname').innerHTML;
-        var city = el.target.parentElement.parentElement.parentElement.querySelector('.city').innerHTML;
-        imodal.querySelector('#userID').value = userID;
-        imodal.querySelector('.name').innerHTML = userName;
-        imodal.querySelector('.firstname').innerHTML = city;
-        imodal.querySelector('.lastname').innerHTML = lastName;
-        imodal.querySelector('.city').innerHTML = city;
-        imodal.style.visibility = "visible";
+  // open function
+    function openModal(targetId){
+        var modal = document.getElementById(targetId);
+        modal.style.display= "block";
+        console.log("moo")
     }
-  }
 
-//Shopping History
-  var shopping = document.getElementsByClassName("sq-admin-user-shopping");
-  for (shs of shopping) { //Iterates through HTML DOM elements
-      shs.onclick =  (el) => { //applies function to onclick event on iterated element
-        var userID = el.target.parentElement.parentElement.id;
-        var userName = el.target.parentElement.parentElement.parentElement.querySelector('.name').innerHTML;
-        shmodal.querySelector('#userID').value = userID;
-        shmodal.querySelector('.name').innerHTML = userName;
-        shmodal.style.visibility = "visible";
+    // Close function
+    function closeModal(targetId){
+        var modal = document.getElementById(targetId);
+        modal.style.display= "none";
     }
-  }
-//Button id end
-
-
-// Get the <span> element that closes the modal start
-//info
-  var ispan = document.getElementsByClassName("iclose")
-  for (shs of ispan) { //Iterates through HTML DOM elements
-      shs.onclick =  (el) => { //applies function to onclick event on iterated element
-        el.target.parentElement.parentElement.style.visibility = "hidden"; //elevates itself from shclose-button to modal element, then sets display to none.
-    }
-  }
-
-//shopping
-  var shspan = document.getElementsByClassName("shclose"); //Selects all "shclose"-buttons
-  for (shs of shspan) { //Iterates through HTML DOM elements
-      shs.onclick =  (el) => { //applies function to onclick event on iterated element
-        el.target.parentElement.parentElement.style.visibility = "hidden"; //elevates itself from shclose-button to modal element, then sets display to none.
-    }
-  }
-//end
 </script>

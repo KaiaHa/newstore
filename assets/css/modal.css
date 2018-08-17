@@ -11,7 +11,7 @@
   /* visibility: hidden; /*Same as display none*/
   transform: scale(1.1);
   z-index: 1; /* Sit on top */
-  visibility: hidden;
+  display: none;
   padding-top: 6em; /* push box down */
   overflow: auto; /* if needing to scroll */
 }

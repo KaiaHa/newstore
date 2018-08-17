@@ -52,8 +52,8 @@
     <div class="sq-panel-main-content sq-air-10">
         <div class="sq-air-y-1 sq-panel sq-flex-wrap sq-justify-space-around">
 
-
-<%= for product <- @products do %>
+            <!-- product card start -->
+            <%= for product <- @products do %>
             <div class="sq-product-card sq-card sq-air-05 sq-admin-user-info" style="display:block;" >
                 <div class="sq-card-header sq-text-center sq-air-05">
                     <strong><%= product.name %></strong>
@@ -64,52 +64,43 @@
                 <div class="sq-card-footer sq-text-center">
                     <%= product.price %>
                     <button>Buy</button>
-                </div>
-            </div>
-
-        <% end %>
-
-
-
-
+                    <!-- product card end -->
+                    <!-- Modal start -->
+                    <button onclick="openModal('<%= product.id %>')">Info</button>
+                     <div id="<%= product.id %>" class="sq-modal">
+                        <div class="sq-modal-content"     
+                            <span onclick="closeModal('<%= product.id %>')" class="iclose sq-close">&times;</span>
+                            <div class="sq-flex">
+                                <img src="/images/user.png" alt="" class="sq-landing-card sq-air-r-10">
+                                <p> <%= product.name %> </p>
+                            </div>
+                            <div class="sq-flex">
+                                <p> <%= product.details %></p>
+                                <a href="/shoppingcart"><button>Buy</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>   
+            <% end %>
         </div>
-
     </div>
-</div>
-<div id="sq-modal-info" class="sq-modal">
-      <div class="sq-modal-content">
-        <input hidden id="userID" value="">
-        <span class="iclose sq-close">&times;</span>
-        <div class="sq-flex">
-        <img src="/images/user.png" alt="" class="sq-landing-card sq-air-r-10">
-        <p>info about product</p>
-        </div>
-        <div class="sq-flex">
-        <p>More descriptive description of the product</p>
-        <a href="/shoppingcart"><button>Buy</button></a>
-        </div>
-      </div>
-    </div>
+
+
 <script>
-    //get modal info and shopping start
-    var imodal = document.getElementById("sq-modal-info");
+    // open function
+    function openModal(targetId){
+        var modal = document.getElementById(targetId);
+        modal.style.display= "block";
+        console.log("moo")
+    }
+
+    // Close function
+    function closeModal(targetId){
+        var modal = document.getElementById(targetId);
+        modal.style.display= "none";
+    }
 
     // Button id that opens the modal start
     //Info
-    var info = document.getElementsByClassName("sq-landing-card");
-    for (shs of info) { //Iterates through HTML DOM elements
-        shs.onclick =  (el) => { //applies function to onclick event on iterated element
-            var userName = el.target.querySelector;
-            imodal.style.visibility = "visible";
-        }
-    }
-
-    // Get the <span> element that closes the modal start
-    //info
-    var ispan = document.getElementsByClassName("iclose")
-    for (shs of ispan) { //Iterates through HTML DOM elements
-        shs.onclick =  (el) => { //applies function to onclick event on iterated element
-            el.target.parentElement.parentElement.style.visibility = "hidden"; //elevates itself from shclose-button to modal element, then sets display to none.
-        }
-    }
 </script>
