@@ -68,15 +68,21 @@
                     <!-- Modal start -->
                     <button onclick="openModal('<%= product.id %>')">Info</button>
                      <div id="<%= product.id %>" class="sq-modal">
-                        <div class="sq-modal-content"     
-                            <span onclick="closeModal('<%= product.id %>')" class="iclose sq-close">&times;</span>
-                            <div class="sq-flex">
-                                <img src="/images/user.png" alt="" class="sq-landing-card sq-air-r-10">
-                                <p> <%= product.name %> </p>
+                        <div class="sq-modal-content" style="width: 30%; height: 35%;">     
+                            <button  onclick="closeModal('<%= product.id %>')" class="sq-close">&times;</button>
+                            <div class="sq-flex sq-justify-center sq-success-highlight">
+                                <h2 class="sq-text-center"> <%= product.name %> </h2>
+                            </div>    
+                            <div class="sq-flex sq-justify-center" style="background-color: #9ecf99;">   
+                                <img src="/images/user.png" alt="" class="sq-justify-center sq-air-r-10">
                             </div>
-                            <div class="sq-flex">
-                                <p> <%= product.details %></p>
-                                <a href="/shoppingcart"><button>Buy</button></a>
+                            <div class="sq-flex sq-justify-center sq-success-highlight">
+                                <p class="sq-text-center"> <%= product.details %></p>
+                            </div>    
+                            <div class="sq-success-highlight" style="max-height: 2rem;"> 
+     
+                                <a href="/shoppingcart"><button style="margin-left: 39.8em;">Buy</button></a>
+
                             </div>
                         </div>
                     </div>

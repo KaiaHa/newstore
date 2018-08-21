@@ -27,7 +27,7 @@
         <!--NavBar part 2/3-->
         <div class="sq-navbar-domain sq-secondary sq-flex sq-force-2 sq-justify-around">
 
-          <div class="sq-flex sq-force-left" style="margin-left: 1em; font-weight: bold;"><a href="/" class="sq-text-white sq-secondary">Home!</a></div>
+          <div class="sq-flex sq-force-left" style="margin-left: 1em; font-weight: bold;"><a href="/" class="sq-text-white sq-secondary"><img src="/images/newStore.png" alt="" style="height: 200%; width 200%; margin-top: -2em;"> </a></div>
           <!-- SearchBar -->
           <div class=" sq-flex sq-justify-center sq-width-300em sq-form  sq-height-80p">
            <input type="text" placeholder="Search" name="search" class="sq-air-r-05" style="border-radius: 5px 0px 0px 5px; background-color: #dff0d8;">
@@ -136,11 +136,11 @@
         </div>
         <!-- Navbar part 3/3-->
         <div class="sq-navbar-links sq-secondary-highlight sq-text-center sq-force-2 sq-border-nav">
-          <div class="sq-nav-btn-group sq-flex sq-justify-evenly">
-            <a href="#">Categories</a>
-            <a href="/products">Products</a>
-            <a href="/products">Top sellers</a>
-            <a href="/products">Campaign</a>
+          <div class="sq-nav-btn-group sq-flex sq-justify-evenly" style="margin-top: 0.1em;">
+           <button><a href="#">Categories</a></button>
+           <button><a href="/products">Products</a></button>
+            <button><a href="/products">Top sellers</a></button>
+           <button><a href="/products">Campaign</a></button>
           </div>
         </div>
       </div>

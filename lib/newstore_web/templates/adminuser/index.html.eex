@@ -9,7 +9,6 @@
       <button>Search</button>
   </div>
 
-
   <%= for user <- @users do %>
   <div class="sq-flex sq-justify-center">
   <!--Table-->
@@ -30,7 +29,7 @@
         </td>
         <td class="sq-border-1 sq-padding-05"> 
           <div class="sq-flex sq-justify-center">
-            <button class="sq-admin-user-shopping">Shopping History</button>
+            <button onclick="openModal('<%= user.id %>')">Shopping History</button>
           </div>
         </td>
         <td class="sq-border-1 sq-padding-05">
@@ -39,6 +38,7 @@
             <button>Delete</button>
           </div>
         </td>
+   
       </tr>
     </table>
   </div>
@@ -92,25 +92,9 @@
         </a>
       </div>
     </div>
-    <% end %>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
- <!--Shopping modal-->
-    <div id="sq-modal-shopping" class="sq-modal">
+    <div id="<%= user.id %>" class="sq-modal">
       <div class="sq-modal-content">
-        <input hidden id="userID" value="">
-        <span class="shclose sq-close">&times;</span>
+        <span onclick="closeModal('<%= user.id %>')" class="iclose sq-close">&times;</span>
         <div class="sq-text-center">
           <h1 class="name">Paragraph 1</h1>
         </div>
@@ -128,6 +112,33 @@
         </a>
       </div>
     </div>
+    <!--<div id="<%= user.id %>" class="sq-modal">
+      <div class="sq-modal-content">
+        <span onclick="closeModal('<%= user.id %>')" class="iclose sq-close">&times;</span>
+        <div class="sq-text-center">
+          <h1 class="name">Paragraph 1</h1>
+        </div>
+        <div class="sq-text-center">
+          <p><strong>Products</strong></p>
+        </div>
+        <input type="text" placeholder="Item 1">
+        <input type="text" placeholder="Item 2">
+        <input type="text" placeholder="Item 3">
+        <input type="text" placeholder="Item 4">
+        <a href="#">
+          <div class="sq-flex sq-justify-center sq-air-t-20">
+            <button class="sq-padding-1">Submit</button>
+          </div>
+        </a>
+      </div>-->
+    <% end %>
+  </section>
+
+
+
+
+ <!--Shopping modal-->
+    
 </section>
 <script>
   // open function
